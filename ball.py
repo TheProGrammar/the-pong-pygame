@@ -20,11 +20,13 @@ class Ball(pygame.sprite.Sprite):
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
 
-    def bounce_from_wall(self, screen_height):
+    def bounce_from_wall(self, screen_height, play, sound, hit_list):
         """Change ball y direction after hitting top or bottom wall"""
         if self.rect.y >= screen_height - 20:
+            play(sound(random.choice(hit_list)))
             self.speed_y *= -1
         elif self.rect.y < 0:
+            play(sound(random.choice(hit_list)))
             self.speed_y *= -1
 
     def change_x_direction(self):

@@ -25,20 +25,13 @@ class Paddle:
         elif self.rect.bottom >= s_height:
             self.rect.bottom = s_height
 
-    def ai_move(self, ball, s_height):
+    def ai_move(self, ball, s_height, speed):
         """Function that moves left (AI) paddle towards
         the y position of ball automatically"""
         if ball.speed_x <= 0 and self.rect.centery < ball.rect.centery:
-            self.rect.centery += 5
+            self.rect.centery += speed
         elif self.rect.centery > ball.rect.centery:
-            self.rect.centery -= 5
-
-        # # If ball goes left and passes half of the screen
-        # if ball.speed_x <= 0 and ball.rect.x < s_width / 2:
-        #     division_index = 12
-        #     y_difference = ball.rect.centery - self.rect.centery
-        #     new_paddle_y = y_difference / division_index
-        #     self.rect.centery += new_paddle_y
+            self.rect.centery -= speed
 
         # Moves left paddle to the center of the screen after ball contact
         if ball.speed_x > 0:

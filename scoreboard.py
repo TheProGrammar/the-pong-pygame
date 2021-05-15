@@ -11,7 +11,7 @@ class Scoreboard:
 
     def draw_scores(self, color, screen, screen_width):
         player_text = self.basic_font.render(f'{self.player_score}', False, color)
-        screen.blit(player_text, (screen_width / 2 - 30, 10))
+        screen.blit(player_text, (screen_width / 2 - 30, 290))
 
         opponent_text = self.basic_font.render(f'{self.ai_score}', False, color)
-        screen.blit(opponent_text, (screen_width / 2 + 13, 10))
+        screen.blit(opponent_text, (screen_width / 2 + 13, 290))
