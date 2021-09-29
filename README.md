@@ -1,4 +1,4 @@
-# the-pong-pygame
+# the-pong-python
 Project files for a Pong game made by Python using pygame
 
 The Pong game for 1 player vs an AI opponent. I wanted to include as many features as I could.
