@@ -2,9 +2,9 @@ import random
 import time
 
 import pygame
+from pygame.locals import *
 import tkinter
 from tkinter import simpledialog
-from pygame.locals import *
 from paddle import Paddle
 from ball import Ball
 from scoreboard import Scoreboard
@@ -34,9 +34,9 @@ WHITE = (255, 255, 255)
 LIGHT_GRAY = (200, 200, 200)
 
 # Instantiate objects
-r_paddle = Paddle(730, 250, WHITE)
+r_paddle = Paddle(SCREEN_WIDTH - (SCREEN_WIDTH * 0.1), SCREEN_HEIGHT / 2 - 50, WHITE)
 ball = Ball(WHITE, SCREEN_WIDTH, SCREEN_HEIGHT)
-l_paddle = Paddle(50, 250, WHITE)
+l_paddle = Paddle(SCREEN_WIDTH * 0.07, SCREEN_HEIGHT / 2 - 50, WHITE)
 scoreboard = Scoreboard()
 
 # Create groups to hold ball objects
@@ -51,6 +51,7 @@ ROOT = tkinter.Tk()
 ROOT.withdraw()
 USER_INP = int(simpledialog.askstring(title="Difficulty",
                                       prompt="Choose Difficulty. 1 = Easy, 2 = Normal, 3 = Hard"))
+
 ai_speed = 0
 player_speed = 0
 
@@ -69,8 +70,6 @@ time.sleep(1)
 # Main Game Loop
 running = True
 while running:
-    # Limits FPS to 60
-    clock.tick(FPS)
 
     # Check for game closing commands
     for event in pygame.event.get():
@@ -154,5 +153,7 @@ while running:
 
     # Refresh the screen
     pygame.display.flip()
+    # Limits FPS to 60
+    clock.tick(FPS)
 
 pygame.quit()
